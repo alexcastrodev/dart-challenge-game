@@ -33,7 +33,6 @@ class Leasons {
         } catch (\Exception $e) {
             exit(Response\json(['message' => 'json: Syntax error'], 422));
         }
-
     }
 }
 
