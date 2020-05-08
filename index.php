@@ -8,7 +8,7 @@ Route\get('/',  function() {
     return Response\json(['Hello' => 'What are you looking for?']);
 });
 
-Route\post('/leason', [new Leasons(), 'init']);
+Route\post('/leason/{id}', [new Leasons(), 'init']);
 
 if (!Route\did_match()) {
     return Response\json([], 404);
