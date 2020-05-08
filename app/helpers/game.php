@@ -19,17 +19,21 @@ class game {
     }
 
     private static function leason_one($code) {
-        $fileName = 'dart-'. rand(1, 1000).'-'.date('Y-m-d H:m:i');
+        $fileName = 'dart-'. rand(1, 1000).'-'.date('Y-m-d--H-m-i').'.dart';
         $dartCode = fopen(__DIR__.'/codes/'.$fileName, 'w');
         fwrite($dartCode, $code);
         fclose($dartCode);
-        if(static::runCode($code) == static::expected[1]) {
 
+        if(static::runCode($fileName) == static::expected[1]) {
+            return true;
         }
+        return false;
     }
 
-    private static function runCode($code) {
-
+    private static function runCode($file) {
+        $output = shell_exec('/usr/bin/dart '.$file);
+        var_dump($output, $file);
+        return true;
     }
 
     public static function help($id)
