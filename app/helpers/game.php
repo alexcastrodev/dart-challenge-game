@@ -4,18 +4,24 @@ namespace App\helpers;
 
 use Siler\Http\Response;
 use App\Model\Challenge;
+use App\helpers\darkside;
 
 class game
 {
     const expected = [
-        1 => '19:string'
+        //        1 => '19:string'
+        1 => 'hello'
     ];
     public static function play($id, $code)
     {
+        darkside::scan($code);
         $game = false;
         switch ($id) {
             case 1:
                 $game = static::leason_one($code);
+                break;
+            default:
+                exit(Response\json([], 404));
                 break;
         }
 
@@ -24,10 +30,8 @@ class game
 
     private static function leason_one($code)
     {
-        $fileName = 'dart-' . rand(1, 1000) . '-' . date('Y-m-d--H-m-i') . '.dart';
-        $dartCode = fopen(__DIR__ . '/codes/' . $fileName, 'w');
-        fwrite($dartCode, $code);
-        fclose($dartCode);
+        $fileName = __DIR__ . '/codes/dart-' . rand(1, 1000) . '-' . date('Y-m-d--H-m-i') . '.dart';
+        file_put_contents($fileName, $code);
 
         if (static::runCode($fileName) == static::expected[1]) {
             return true;
@@ -37,9 +41,8 @@ class game
 
     private static function runCode($file)
     {
-        $output = shell_exec('/usr/bin/dart ' . $file);
-        var_dump($output, $file);
-        return true;
+        $output = shell_exec('dart ' . $file);
+        return trim($output);
     }
 
     public static function help($id)
