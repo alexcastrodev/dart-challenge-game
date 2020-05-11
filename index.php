@@ -1,15 +1,11 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
+require "config/bootstrap.php";
 
 use Siler\{Http\Response, Route};
 use App\Controllers\Leasons;
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
 
-use Config\Database;
-
-$database = Database::run();
 
 Response\header('Access-Control-Allow-Origin', '*');
 Response\header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
