@@ -10,7 +10,6 @@ $dotenv->load();
 use Config\Database;
 
 $database = Database::run();
-
 Response\header('Access-Control-Allow-Origin', '*');
 Response\header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
 
