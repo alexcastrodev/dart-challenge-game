@@ -28,6 +28,8 @@ class Database
 
             $capsule->setAsGlobal();
             $capsule->bootEloquent();
+
+            return $capsule;
         } catch (\Exception $e) {
             exit(Response\json(['error' => 'database connection'], 500));
         }
