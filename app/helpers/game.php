@@ -49,7 +49,7 @@ class game
     {
         $help = Challenge::select('help')->where('id', $id)->first();
 
-        if (count($help) > 0) {
+        if ($help->count() > 0) {
             return Response\json(['message' => $help]);
         }
         exit(Response\json([], 404));
