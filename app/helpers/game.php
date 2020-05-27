@@ -8,32 +8,33 @@ use App\helpers\darkside;
 
 class game
 {
-    const expected = [
-        //        1 => '19:string'
-        1 => 'hello'
-    ];
+
     public static function play($id, $code)
     {
         darkside::scan($code);
-        $game = false;
-        switch ($id) {
-            case 1:
-                $game = static::leason_one($code);
-                break;
-            default:
-                exit(Response\json([], 404));
-                break;
+
+        $challenge = Challenge::select('help', 'expect')->where('id', $id)->first();
+
+        if (!$challenge) {
+            exit(Response\json([], 404));
         }
+
+        if (trim($code) == 'help') {
+            exit(static::help($challenge));
+        }
+
+        $game = false;
+        $game = static::start($code, $challenge);
 
         return $game;
     }
 
-    private static function leason_one($code)
+    private static function start($code, $challenge)
     {
         $fileName = __DIR__ . '/codes/dart-' . rand(1, 1000) . '-' . date('Y-m-d--H-m-i') . '.dart';
         file_put_contents($fileName, $code);
 
-        if (static::runCode($fileName) == static::expected[1]) {
+        if (static::runCode($fileName) == $challenge->expect) {
             return true;
         }
         return false;
@@ -45,13 +46,8 @@ class game
         return trim($output);
     }
 
-    public static function help($id)
+    public static function help($challenge)
     {
-        $help = Challenge::select('help')->where('id', $id)->first();
-
-        if ($help->count() > 0) {
-            return Response\json(['message' => $help]);
-        }
-        exit(Response\json([], 404));
+        return Response\json(['message' => $challenge->help]);
     }
 }

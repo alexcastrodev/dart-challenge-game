@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '../vendor/autoload.php';
+require_once '../vendor/autoload.php';
 require "../config/bootstrap.php";
 
 use Siler\{Http\Response, Route};

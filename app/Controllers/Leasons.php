@@ -11,8 +11,9 @@ class Leasons
     public function init($params)
     {
         $code = $this->code();
+
         if ($code == 'help') {
-            return game::help($params['id']);
+            return game::play($params['id'], 'help');
         }
 
         return $this->handle(game::play($params['id'], $code));
