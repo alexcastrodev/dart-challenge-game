@@ -21,8 +21,8 @@ class Leasons
 
     private function handle($leason)
     {
-        return $leason ? Response\json(['message' => 'Parabéns!']) :
-            Response\json(['message' => 'Errado :(']);
+        return $leason ? Response\json(['message' => 'Parabéns!', 'type' => 'success']) :
+            Response\json(['message' => 'Errado :(', 'type' => 'error']);
     }
 
     private function code()

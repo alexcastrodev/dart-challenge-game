@@ -13,7 +13,7 @@ class game
     {
         darkside::scan($code);
 
-        $challenge = Challenge::select('help', 'expect')->where('id', $id)->first();
+        $challenge = Challenge::select('help', 'expect', $timeout)->where('id', $id)->first();
 
         if (!$challenge) {
             exit(Response\json([], 404));
@@ -34,15 +34,19 @@ class game
         $fileName = __DIR__ . '/codes/dart-' . rand(1, 1000) . '-' . date('Y-m-d--H-m-i') . '.dart';
         file_put_contents($fileName, $code);
 
-        if (static::runCode($fileName) == $challenge->expect) {
+        if (trim(static::runCode($fileName, $challenge->timeout)) == $challenge->expect) {
             return true;
         }
         return false;
     }
 
-    private static function runCode($file)
+    /*
+        Timeout in Seconds
+    */
+    private static function runCode($file, $timeout)
     {
-        $output = shell_exec('dart ' . $file);
+        $timeout = $timeout && !is_null($timeout) ? $timeout : 3; // 3 Seconds default
+        $output = shell_exec('timeout -k 5 ' . $timeout . ' dart ' . $file);
         return trim($output);
     }
 
