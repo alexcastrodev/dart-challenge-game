@@ -1,4 +1,21 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . index.php
+<IfModule mod_rewrite.c>
+
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # CORS
+    SetEnvIf Origin ":" IS_CORS
+    Header set Access-Control-Allow-Origin "*" env=IS_CORS
+    # Header always set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Headers "Access-Control-Allow-Origin, Content-Type, Accept, Authorization, X-Requested-With, Origin" env=IS_CORS
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS" env=IS_CORS
+    # Header set Access-Control-Expose-Headers "Content-Security-Policy, Location" env=IS_CORS
+    Header set Access-Control-Max-Age "7200" env=IS_CORS
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . index.php
+</IfModule>
