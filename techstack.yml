@@ -2,7 +2,7 @@ repo_name: AlexcastroDev/dart-challenge-game
 report_id: e2beaae223493c76ec95f6392b547dbc
 version: 0.1
 repo_type: Public
-timestamp: '2024-01-02T14:20:18+00:00'
+timestamp: '2024-01-05T08:11:49+00:00'
 requested_by: AlexcastroDev
 provider: github
 branch: master
@@ -17,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/991/hwUcGZ41_400x400.jpg
+  detection_source_url: https://github.com/AlexcastroDev/dart-challenge-game
   detection_source: Repo Metadata
 - name: SQL
   description: It is a domain-specific language used in programming
@@ -26,6 +27,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/2271/default_068d33483bba6b81ee13fbd4dc7aab9780896a54.png
+  detection_source_url: https://github.com/AlexcastroDev/dart-challenge-game/blob/master/sql.sql
   detection_source: sql.sql
   last_updated_by: Alex castro
   last_updated_on: 2020-05-28 14:54:41.000000000 Z
@@ -37,6 +39,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/AlexcastroDev/dart-challenge-game
   detection_source: Repo Metadata
 - name: illuminate/database
   description: The Illuminate Database package
