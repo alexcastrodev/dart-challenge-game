@@ -1,0 +1,69 @@
+repo_name: AlexcastroDev/dart-challenge-game
+report_id: e2beaae223493c76ec95f6392b547dbc
+version: 0.1
+repo_type: Public
+timestamp: '2024-02-29T19:22:27+00:00'
+requested_by: AlexcastroDev
+provider: github
+branch: master
+detected_tools_count: 5
+tools:
+- name: PHP
+  description: A popular general-purpose scripting language that is especially suited
+    to web development
+  website_url: http://www.php.net/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/991/hwUcGZ41_400x400.jpg
+  detection_source_url: https://github.com/AlexcastroDev/dart-challenge-game
+  detection_source: Repo Metadata
+- name: SQL
+  description: It is a domain-specific language used in programming
+  website_url: https://en.wikipedia.org/wiki/SQL
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/2271/default_068d33483bba6b81ee13fbd4dc7aab9780896a54.png
+  detection_source_url: https://github.com/AlexcastroDev/dart-challenge-game/blob/master/sql.sql
+  detection_source: sql.sql
+  last_updated_by: Alex castro
+  last_updated_on: 2020-05-28 14:54:41.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/AlexcastroDev/dart-challenge-game
+  detection_source: Repo Metadata
+- name: illuminate/database
+  description: The Illuminate Database package
+  package_url: https://packagist.org/illuminate/database
+  version: '7.10'
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/AlexcastroDev/dart-challenge-game/blob/master/composer.json
+  detection_source: composer.json
+  last_updated_by: Alex Castro
+  last_updated_on: 2020-05-11 02:07:07.000000000 Z
+- name: vlucas/phpdotenv
+  description: Loads environment variables from `.env` to `getenv
+  package_url: https://packagist.org/vlucas/phpdotenv
+  version: '4.1'
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/AlexcastroDev/dart-challenge-game/blob/master/composer.json
+  detection_source: composer.json
+  last_updated_by: Alex Castro
+  last_updated_on: 2020-05-11 02:07:07.000000000 Z
